@@ -1,0 +1,424 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "FastAPI",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health_check": {
+      "get": {
+        "summary": "Health Check",
+        "operationId": "health_check_health_check_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Health Check Health Check Get",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customize/meta": {
+      "get": {
+        "tags": [
+          "tag1"
+        ],
+        "summary": "summary...",
+        "description": "docstring of meta\n\n* **bold**\n* *italic*\n* ~tilde~\n\n![embed image](/media/image_pil)\n\n[Link to FastAPI](https://fastapi.tiangolo.com/ja/)",
+        "operationId": "operationId...",
+        "responses": {
+          "200": {
+            "description": "Description Of Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/enum/enum_io": {
+      "post": {
+        "summary": "Enum Io",
+        "operationId": "enum_io_enum_enum_io_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnumModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnumModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/labsunion": {
+      "post": {
+        "summary": "Union Model",
+        "operationId": "union_model_labsunion_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnionModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnionModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/image_pil": {
+      "get": {
+        "summary": "Image Pil",
+        "operationId": "image_pil_media_image_pil_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/gif": {
+      "get": {
+        "summary": "Gif",
+        "operationId": "gif_media_gif_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "image/gif": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/gif/{frame}": {
+      "get": {
+        "summary": "Gif Frame",
+        "operationId": "gif_frame_media_gif__frame__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Frame",
+              "type": "integer"
+            },
+            "name": "frame",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/params/{path_p}": {
+      "get": {
+        "summary": "Path Param",
+        "operationId": "path_param_params__path_p__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Path P",
+              "type": "string"
+            },
+            "name": "path_p",
+            "in": "path"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "Query P",
+              "type": "number"
+            },
+            "name": "query_p",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParamRespModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pure/text": {
+      "get": {
+        "summary": "Text",
+        "operationId": "text_pure_text_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pure/str": {
+      "get": {
+        "summary": "Str ",
+        "operationId": "str__pure_str_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StrModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pure/bytes": {
+      "get": {
+        "summary": "Bytes ",
+        "operationId": "bytes__pure_bytes_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BytesModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BytesModel": {
+        "title": "BytesModel",
+        "type": "string",
+        "format": "binary"
+      },
+      "Dir": {
+        "title": "Dir",
+        "enum": [
+          "1",
+          "2",
+          "3",
+          "999"
+        ],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "EnumModel": {
+        "title": "EnumModel",
+        "required": [
+          "var"
+        ],
+        "type": "object",
+        "properties": {
+          "var": {
+            "$ref": "#/components/schemas/Dir"
+          }
+        }
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "ParamRespModel": {
+        "title": "ParamRespModel",
+        "required": [
+          "path",
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "path": {
+            "title": "Path",
+            "type": "string"
+          },
+          "query": {
+            "title": "Query",
+            "type": "number"
+          }
+        }
+      },
+      "StrModel": {
+        "title": "StrModel",
+        "type": "string"
+      },
+      "UnionModel": {
+        "title": "UnionModel",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "Data",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

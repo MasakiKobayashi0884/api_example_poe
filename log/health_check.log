@@ -1,0 +1,8 @@
+API:INFO   [2023-05-23 17:29:35,957] Request : 127.0.0.1:49900 - GET - /health_check
+API:INFO   [2023-05-23 17:29:35,958] Response: 200 - 0.0010s
+API:INFO   [2023-05-23 17:29:46,669] Request : 127.0.0.1:50970 - GET - /health_check
+API:INFO   [2023-05-23 17:29:46,670] Response: 200 - 0.0011s
+API:INFO   [2023-05-23 17:29:52,859] Request : 127.0.0.1:52666 - GET - /health_check
+API:INFO   [2023-05-23 17:29:52,859] Response: 200 - 0.0007s
+API:INFO   [2023-05-23 17:30:02,596] Request : 127.0.0.1:52298 - GET - /health_check
+API:INFO   [2023-05-23 17:30:02,597] Response: 200 - 0.0008s
