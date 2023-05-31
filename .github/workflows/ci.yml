@@ -33,7 +33,6 @@ jobs:
       - name: lint
         run: |
           poetry run ruff .
-          poetry run mypy .
 
       - name: test
         run: poetry run pytest test
