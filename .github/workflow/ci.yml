@@ -1,0 +1,60 @@
+name: Test CI
+on:
+  pull_request:
+    branches:
+      - "feature/**"
+    paths:
+      - "api1/**"
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  pytyhon-ci:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: "api1"
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: install
+        run: |
+          bash scripts/install_aws_env.sh
+          echo "$HOME/poetry/bin" >> $GITHUB_PATH
+
+      - name: format
+        run: |
+          set -ex
+          poetry run ruff --select I --fix .
+          poetry run black .
+
+      - name: lint
+        run: |
+          set -ex
+          poetry run ruff .
+          poetry run mypy .
+
+      - name: test
+        run: poetry run pytest test
+
+      - name: build-doc-client
+        run: poetry run python scripts/generate_client.py
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload entire repository
+          path: './docs'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: write time
