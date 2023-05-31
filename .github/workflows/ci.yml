@@ -21,7 +21,7 @@ jobs:
         uses: abatilo/actions-poetry@v2
 
       - name: install packages
-        uses: poetry install
+        run: poetry install
 
       - name: format
         run: |
