@@ -21,7 +21,9 @@ jobs:
         uses: abatilo/actions-poetry@v2
 
       - name: install packages
-        run: poetry install
+        run: |
+          poetry install
+          mypy --install-types --non-interactive
 
       - name: format
         run: |
