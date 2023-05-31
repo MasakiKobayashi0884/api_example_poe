@@ -20,6 +20,9 @@ jobs:
       - name: Run image
         uses: abatilo/actions-poetry@v2
 
+      - name: install packages
+        uses: poetry install
+
       - name: format
         run: |
           poetry run ruff --select I --fix .
