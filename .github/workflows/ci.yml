@@ -34,7 +34,7 @@ jobs:
           poetry run ruff .
 
       - name: test
-        run: poetry run pytest test
+        run: poetry run pytest tests
 
       - name: build-doc-client
         run: poetry run python scripts/generate_client.py
