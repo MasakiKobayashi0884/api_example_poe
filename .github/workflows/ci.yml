@@ -23,7 +23,6 @@ jobs:
       - name: install packages
         run: |
           poetry install
-          poetry run mypy --install-types --non-interactive
 
       - name: format
         run: |
