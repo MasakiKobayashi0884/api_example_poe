@@ -9,7 +9,7 @@ packages = [{ include = "api_example_poe" }]
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = { extras = ["all"], version = "^0.95.2" }
-pillow = "^9.5.0"
+pillow = "^10.0.1"
 
 
 [tool.poetry.group.dev.dependencies]
